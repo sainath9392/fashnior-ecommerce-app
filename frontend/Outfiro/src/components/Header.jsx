@@ -18,12 +18,14 @@ const Header = () => {
     <header className="max-padd-container w-full z-50">
       <div className="flexBetween py-3">
         {/* logo Left side */}
-
-        <Link to={"/"} className="flex flex-1 mr-5">
-          <div className="bold-32">
+        <div>
+          <Link to={"/"} className="flex flex-1 xs:pr-5">
+          <div className="bold-32 ">
             Outfir<span className="text-secondary">o</span>
           </div>
         </Link>
+        </div>
+        
 
         {/* Navbar */}
         <div className="flex-1 ">
@@ -37,7 +39,7 @@ const Header = () => {
         </div>
 
         {/* Button on Right Side */}
-        <div className="flex-1 flex items-center justify-end gap-x-2 xs:gap-x-8">
+        <div className="flex-1 flex items-center justify-end gap-x-2 xs:gap-x-4 ">
           <FaBarsStaggered onClick={toggleMenu} className="xl:hidden cursor-pointer text-xl" />
           <FaSearch className="text-lg cursor-pointer" />
           <Link to={"/cart"} className="flex relative">
