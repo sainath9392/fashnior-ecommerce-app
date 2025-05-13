@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Title from "./Title";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -10,20 +10,27 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import { products } from "../assets/data";
+
 import Item from "./item";
+import { ShopContext } from "../context/ShopContext";
 
 const NewArrivals = () => {
 
-        const [newArrivals,setNewArrivals] =useState([]);
-        useEffect(()=>{
-            const data = products.slice(0,10);
-            setNewArrivals(data);
-        },[products])
+    const {products} = useContext(ShopContext)
+  const [newArrivals, setNewArrivals] = useState([]);
+  useEffect(() => {
+    const data = products.slice(0, 10);
+    setNewArrivals(data);
+  }, [products]);
 
   return (
     <section className="max-padd-container pt-16 pb-6 bg-primary">
-      <Title title1={'New'} title2={'Arrivals'} titleStyles={'pb-10'} paraStyles={'!block'} />
+      <Title
+        title1={"New"}
+        title2={"Arrivals"}
+        titleStyles={"pb-10"}
+        paraStyles={"!block"}
+      />
 
       {/* Swiper Container */}
       <Swiper
@@ -52,15 +59,14 @@ const NewArrivals = () => {
             spaceBetween: 30,
           },
         }}
-        modules={[Autoplay, Pagination, ]}
+        modules={[Autoplay, Pagination]}
         className="h-[555px] sm:h-[411px] md:h-[488px]"
       >
         {newArrivals.map((product) => (
-            <SwiperSlide key={product._id}>
-                <Item product={product} />
-            </SwiperSlide>
+          <SwiperSlide key={product._id}>
+            <Item product={product} />
+          </SwiperSlide>
         ))}
-       
       </Swiper>
     </section>
   );
