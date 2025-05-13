@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaBarsStaggered, FaRegCircleUser, FaUser } from "react-icons/fa6";
-import Navbar from "./Navbar";
+import { FaBarsStaggered, FaRegCircleUser } from "react-icons/fa6";
+
 import { FaSearch } from "react-icons/fa";
 import { TbBasket, TbUserCircle } from "react-icons/tb";
 import { RiUserLine } from "react-icons/ri";
+import Navbar from "./Navbar";
 
 const Header = () => {
   const [token, setToken] = useState("");
+  const [menuOpened, setMenuOpened] = useState(false);
   return (
     <header className="max-padd-container w-full z-50">
       <div className="flexBetween py-3">
@@ -21,16 +23,24 @@ const Header = () => {
 
         {/* Navbar */}
         <div className="flex-1 ">
-          <Navbar />
+          <Navbar
+            containerStyles={`${
+              menuOpened
+                ? "flex items-start flex-col gap-y-8 fixed top-16 right-6 p-5 bg-white rounded-xl shadow-md w-52 ring-1 ring-slate-900/5 z-50"
+                : "hidden xl:flex gap-x-5 xl:gap-x-10 medium-15 ring-1 ring-slate-900/5 rounded-full p-1 justify-center"
+            }`}
+          />
         </div>
 
         {/* Button on Right Side */}
-        <div className="flex-1 flex items-center justify-end gap-x-2 xs:gap-x-8">
+        <div className="flex-1 flex items-center justify-end gap-x-2 xs:gap-x-6">
           <FaBarsStaggered className="xl:hidden cursor-pointer text-xl" />
           <FaSearch className="text-lg cursor-pointer" />
           <Link to={"/cart"} className="flex relative">
             <TbBasket className="text-[27px]" />
-            <span className="bg-secondary text-white text-[12px] font-semibold left-1.5 -top-3.5 flexCenter w-4 h-4 rounded-full shadow-md">0</span>
+            <span className="bg-secondary text-white text-[12px] font-semibold left-1.5 -top-3.5 flexCenter w-4 h-4 rounded-full shadow-md">
+              0
+            </span>
           </Link>
           <div className="group relative">
             {token ? (
