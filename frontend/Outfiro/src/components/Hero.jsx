@@ -25,7 +25,7 @@ const Hero = () => {
             <FaPlay className="text-sm relative left-[1px] text-white" />
           </span>
         </div>
-        <p className=" text-gray-700 text-[13px]">
+        <p className=" text-[13px]">
           <b className="uppercase">Unlock</b> your best look, one click at a time. Your style upgrade
           starts here, shop today!
         </p>

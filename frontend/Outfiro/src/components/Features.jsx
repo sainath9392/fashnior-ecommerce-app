@@ -30,19 +30,19 @@ const Features = () => {
         <div className="flexCenter flex-wrap sm:flex-nowrap gap-x-5 ">
           <div className="p-4 rounded-3xl">
             <h4 className="h4 capitalize">Quality Product</h4>
-            <p className="text-gray-700">
+            <p >
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </p>
           </div>
           <div className="p-4 rounded-3xl">
             <h4 className="h4 capitalize">Fast Product</h4>
-            <p className="text-gray-700">
+            <p >
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </p>
           </div>
           <div className="p-4 rounded-3xl">
             <h4 className="h4 capitalize">Secure Payment</h4>
-            <p className="text-gray-700">
+            <p >
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </p>
           </div>
