@@ -10,15 +10,16 @@ import Collection from './pages/Collection'
 
 const App = () => {
   return (
-    <div >
+    <main className='over-flow-hidden text-[#404040]' >
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='collection' element={<Collection />} />
         <Route path='testimonials' element={<Testimonials />} />
         <Route path='product/:productId' element={<Product />} />
+        
       </Routes>
-    </div>
+    </main>
   )
 }
 

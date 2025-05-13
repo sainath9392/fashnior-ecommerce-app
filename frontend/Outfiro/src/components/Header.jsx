@@ -10,12 +10,16 @@ import Navbar from "./Navbar";
 const Header = () => {
   const [token, setToken] = useState("");
   const [menuOpened, setMenuOpened] = useState(false);
+  const toggleMenu = () => {
+    setMenuOpened((prev) => !prev);
+  };
+
   return (
     <header className="max-padd-container w-full z-50">
       <div className="flexBetween py-3">
         {/* logo Left side */}
 
-        <Link to={"/"} className="flex flex-1">
+        <Link to={"/"} className="flex flex-1 mr-5">
           <div className="bold-32">
             Outfir<span className="text-secondary">o</span>
           </div>
@@ -27,14 +31,14 @@ const Header = () => {
             containerStyles={`${
               menuOpened
                 ? "flex items-start flex-col gap-y-8 fixed top-16 right-6 p-5 bg-white rounded-xl shadow-md w-52 ring-1 ring-slate-900/5 z-50"
-                : "hidden xl:flex gap-x-5 xl:gap-x-10 medium-15 ring-1 ring-slate-900/5 rounded-full p-1 justify-center"
+                : "hidden xl:flex gap-x-5 xl:gap-x-10 medium-15 ring-1 ring-slate-900/5 rounded-full p-1  "
             }`}
           />
         </div>
 
         {/* Button on Right Side */}
-        <div className="flex-1 flex items-center justify-end gap-x-2 xs:gap-x-6">
-          <FaBarsStaggered className="xl:hidden cursor-pointer text-xl" />
+        <div className="flex-1 flex items-center justify-end gap-x-2 xs:gap-x-8">
+          <FaBarsStaggered onClick={toggleMenu} className="xl:hidden cursor-pointer text-xl" />
           <FaSearch className="text-lg cursor-pointer" />
           <Link to={"/cart"} className="flex relative">
             <TbBasket className="text-[27px]" />
