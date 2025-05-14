@@ -39,8 +39,8 @@ const Header = () => {
         </div>
 
         {/* Button on Right Side */}
-        <div className="flex-1 flex items-center justify-end gap-x-2 xs:gap-x-4 ">
-          <FaBarsStaggered onClick={toggleMenu} className="xl:hidden cursor-pointer text-xl" />
+        <div className="flex-1 flex items-center justify-end gap-x-2 xs:gap-x-4 max-xs:ml-7 max-sm:ml-5">
+          <FaBarsStaggered onClick={toggleMenu} className="xl:hidden cursor-pointer text-xl " />
           <FaSearch className="text-lg cursor-pointer" />
           <Link to={"/cart"} className="flex relative">
             <TbBasket className="text-[27px]" />
@@ -51,12 +51,12 @@ const Header = () => {
           <div className="group relative">
             {token ? (
               <div>
-                <TbUserCircle className="text-[29px] cursor-pointer" />
+                <TbUserCircle className="text-[29px] max-sm:text-[18px] cursor-pointer" />
               </div>
             ) : (
-              <button className="btn-light cursor-pointer flexCenter gap-x-2">
+              <button className="btn-light  cursor-pointer flexCenter gap-x-2">
                 Login
-                <RiUserLine className="text-xl" />
+                <RiUserLine className="text-xl max-sm:text-[18px]" />
               </button>
             )}
           </div>
