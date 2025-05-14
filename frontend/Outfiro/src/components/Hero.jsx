@@ -7,7 +7,7 @@ import { FaPlay } from "react-icons/fa6";
 
 const Hero = () => {
   return (
-    <section className="max-padd-container bg-[url(/src/assets/bg.png)] bg-cover bg-center bg-no-repeat h-[667px] w-full mb-10 relative">
+    <section className="max-padd-container bg-[url(/src/assets/bg.png)] bg-cover bg-center bg-no-repeat h-[667px] max-xs:h-[750px] w-full mb-10 relative">
       <div className="bg-white p-3 rounded-2xl max-w-[233px] relative top-8 xl:top-12">
         <div className="relative">
           <img
@@ -30,9 +30,11 @@ const Hero = () => {
           starts here, shop today!
         </p>
       </div>
-      <div className="mt-12 sm:mt-20 xl:mt-40 max-w-[777px]">
-        <h5 className="flex items-baseline gap-x-2 uppercase text-secondary medium-18">MODERN COLLECTION <BsFire /></h5>
-        <h1 className="h1 font-[500] capitalize max-w-[722px]">Every click brings you closer to perfection shop now!</h1>
+    
+      <div className="mt-15 sm:mt-20 md:mt-20 lg:mt-20 xl:mt-20 max-w-[777px]">
+        <div className="mb-7"><h5 className=" items-center gap-x-2 uppercase text-white bg-gray-500 p-2 medium-18 inline rounded-full">MODERN COLLECTION <BsFire className="inline text-orange-400 text-[20px]" /></h5></div>
+        
+        <h1 className="h1 font-[500] capitalize max-w-[722px]">Every <span className="hover:text-secondary cursor-pointer">click</span> brings you closer to perfection shop now!</h1>
         <div className="flex" >
           <Link className="bg-white text-xs font-medium pl-5 rounded-full flexCenter gap-x-2 group capitalize">
             Check Our modern Collection <FaArrowRight className="bg-secondary text-white rounded-full h-11 w-11 p-3 m-[3px] border border-white group-hover:-rotate-[20deg]

@@ -17,7 +17,7 @@ const PopularProducts = () => {
       <Title
         title1={"Popular"}
         title2={"Products"}
-        titleStyles={"pd-10"}
+        titleStyles={"pb-10"}
         paraStyles={"!block"}
       />
       {/* Container */}
