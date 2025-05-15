@@ -1,8 +1,16 @@
 import React from 'react'
+import ShowSearch from '../components/ShowSearch'
 
 const Collection = () => {
   return (
-    <div>Collection</div>
+    <div>
+      <div>
+        {/* Filter Options */}
+        <div>
+          <ShowSearch />
+        </div>
+      </div>
+    </div>
   )
 }
 
