@@ -36,7 +36,7 @@ const Hero = () => {
         
         <h1 className="h1 font-[500] capitalize max-w-[722px]">Every <span className="hover:text-secondary cursor-pointer">click</span> brings you closer to perfection shop now!</h1>
         <div className="flex" >
-          <Link className="bg-white text-xs font-medium pl-5 rounded-full flexCenter gap-x-2 group capitalize">
+          <Link to={"/collection"} className="bg-white text-xs font-medium pl-5 rounded-full flexCenter gap-x-2 group capitalize">
             Check Our modern Collection <FaArrowRight className="bg-secondary text-white rounded-full h-11 w-11 p-3 m-[3px] border border-white group-hover:-rotate-[20deg]
             transition-all duration-500" />
           </Link>
