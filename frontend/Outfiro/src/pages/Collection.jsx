@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import ShowSearch from "../components/ShowSearch";
 import { ShopContext } from "../context/ShopContext";
 import Item from "../components/Item"
+import Footer from "../components/Footer"
 
 const Collection = () => {
   const { products, search, showSearch } = useContext(ShopContext);
@@ -136,8 +137,19 @@ const Collection = () => {
               <p>No products found for selected filters</p>
             )}
           </div>
+          {/* pagination */}
+          <div className="flexCenter flex-wrap gap-4 mt-14 mb-10" >
+            <button disabled={currentPage === 1} onClick={()=>setCurrentPage((prev) => prev-1)} className={`${currentPage === 1 && "opacity-50 cursor-not-allowed" } btn-secondary !py-1 !px-3 `}> Previous</button>
+            {Array.from({length: totalPages}, (_,index) => (
+              <button key={index + 1} onClick={() => setCurrentPage(index+1)} className={`${currentPage === index + 1 && "!bg-tertiary text-white"} btn-light !py-1 !px-3 `}>
+                {index + 1}
+              </button>
+            ))}
+            <button disabled={currentPage === totalPages} className={`${currentPage === totalPages && " opacity-50 cursor-not-allowed"} btn-secondary !py-1 !px-3 `} onClick={()=>setCurrentPage((prev)=> prev+1)}>Next</button>
+          </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
