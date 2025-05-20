@@ -127,7 +127,7 @@ const Product = () => {
         </div>
         <ProductDescription />
         <ProductFeatures />
-        <RelatedProducts />
+        <RelatedProducts category={product.category} subCategory={product.subCategory} />
       </div>
       <Footer />
     </div>
