@@ -81,7 +81,7 @@ const Product = () => {
               {currency}
               {product.price}
             </h4>
-            <p className="max-w-96">{product.description}</p>
+            <p className="max-w-[555px]">{product.description}</p>
 
             <div className="flex flex-col gap-4 my-4 mb-5">
               <div className="flex gap-2">
