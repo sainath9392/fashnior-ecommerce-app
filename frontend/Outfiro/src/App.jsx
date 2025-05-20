@@ -17,6 +17,7 @@ const App = () => {
         <Route path='collection' element={<Collection />} />
         <Route path='testimonials' element={<Testimonials />} />
         <Route path='product/:productId' element={<Product />} />
+        <Route path='collection/product/:productId' element={<Product />} />
         
       </Routes>
     </main>

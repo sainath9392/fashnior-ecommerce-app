@@ -74,7 +74,7 @@ const Collection = () => {
 
   const totalPages = Math.ceil(filteredProducts.length / itemsPerpage);
 
-   console.log(applyFilter());
+   
 
   return (
     <div className="max-padd-container !px-0">
@@ -118,7 +118,7 @@ const Collection = () => {
             <h5 className="h5 mb-4">Sort By</h5>
             <select
               onChange={(e) => setSortType(e.target.value)}
-              className="border border-slate-900/50 outline-none text-gray-500 medium-14 h-8 w-full rounded px-2"
+              className="border border-slate-500/50 outline-none text-gray-500 medium-14 h-8 max-w-fit rounded px-2"
             >
               <option value="relevant">Relevant</option>
               <option value="low">Low</option>
@@ -131,7 +131,7 @@ const Collection = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4 gap-y-6 ">
             {getPaginatedProducts().length > 0 ? (
               getPaginatedProducts().map((product) => (
-                <Item product={product} />
+                <Item key={product._id}  product={product} />
               ))
             ) : (
               <p>No products found for selected filters</p>
