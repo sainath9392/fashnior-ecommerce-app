@@ -35,7 +35,7 @@ const Product = () => {
 
   return (
     <div>
-      <div className="max-padd-container mt-3">
+      <div className="max-padd-container mt-4">
         {/* product data */}
         <div className="flex flex-col gap-12 xl:flex-row bg-white pb-16 rounded-2xl">
           {/* Product Image */}
