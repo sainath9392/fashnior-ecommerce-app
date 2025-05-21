@@ -106,7 +106,7 @@ const Product = () => {
               </div>
             </div>
             <div className="flex items-center gap-x-4">
-              <button className="btn-secondary !rounded-lg w-1/2 flexCenter gap-x-2 capitalize">
+              <button className="btn-secondary  !rounded-lg sm:w-1/2 flexCenter gap-x-2 capitalize">
                 Add To Cart <TbShoppingBagPlus />
               </button>
               <button className="btn-light !rounded-lg !py-3.5 text-red-500">
@@ -118,10 +118,10 @@ const Product = () => {
               <span>Free Delivery on orders over 500$</span>
             </div>
             <hr className="my-3 w-2/3" />
-            <div className="mt-2 flex flex-col gap-1 text-gray-500 text-xs">
-              <div>Authenticy You Can Trust</div>
-              <div>Enjoy Cash on Delivery for Your Convenience</div>
-              <div>Easy Returns and Exchanges within 7days </div>
+            <div className="mt-2 flex flex-col gap-1 text-gray-500 text-[14px]">
+              <p>Authenticy You Can Trust</p>
+              <p>Enjoy Cash on Delivery for Your Convenience</p>
+              <p>Easy Returns and Exchanges within 7days </p>
             </div>
           </div>
         </div>
