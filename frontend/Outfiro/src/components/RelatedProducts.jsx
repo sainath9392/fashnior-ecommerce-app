@@ -1,16 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import Title from "./Title";
 import { ShopContext } from "../context/ShopContext";
-import Item from "./item";
-import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-
-// import required modules
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import Item from "./Item";
 
 
 const RelatedProducts = ({category, subCategory}) => {
@@ -30,42 +22,11 @@ const RelatedProducts = ({category, subCategory}) => {
   return (
     <section className="mt-8 maxx-padd-container">
       <Title title1={"Related"} title2={"Products"} title1Styles={"pb-4"}/>
-        <Swiper
-        autoplay={{
-          delay: 3500,
-          disableOnInteraction: false,
-        }}
-        pagination={{
-          clickable: true,
-        }}
-        breakpoints={{
-          400: {
-            slidesPerView: 2,
-            spaceBetween: 30,
-          },
-          700: {
-            slidesPerView: 3,
-            spaceBetween: 30,
-          },
-          1024: {
-            slidesPerView: 4,
-            spaceBetween: 30,
-          },
-          1200: {
-            slidesPerView: 5,
-            spaceBetween: 30,
-          },
-          
-        }}
-        modules={[Autoplay, Pagination]}
-        className="md:h-[480px] lg:h-[480px] xs:h-[480px] xl:h-[480px] h-[555px] "
-      >
-        {related.map((product) => (
-          <SwiperSlide>
-            <Item  key={product._id} product={product} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+          {related.map((item,i)=>(
+            <Item product={item} key={item._id} />
+          ))}
+        </div>
     </section>
   );
 };

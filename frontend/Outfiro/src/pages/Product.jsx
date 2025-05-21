@@ -46,7 +46,7 @@ const Product = () => {
                   key={i}
                   src={item}
                   onClick={() => setImage(item)}
-                  alt={`product/${product._id}`}
+                  alt={`productimg`}
                   className="max-h-[89px] rounded-lg"
                 />
               ))}
@@ -55,7 +55,7 @@ const Product = () => {
             <div className="max-h-377px w-auto flex">
               <img
                 src={image}
-                alt={`product/${product._id}`}
+                alt={`productimg`}
                 className="rounded-xl bg-gray-50"
               />
             </div>
