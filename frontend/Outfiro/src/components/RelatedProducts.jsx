@@ -21,14 +21,14 @@ const RelatedProducts = ({category, subCategory}) => {
     if (products.length > 0) {
       let filtered = products.slice();
 
-      filtered - filtered.filter((Item) => category === Item.category);
-      filtered - filtered.filter((item) => subCategory === item.subCategory);
+      filtered = filtered.filter((Item) => category === Item.category);
+      filtered = filtered.filter((item) => subCategory === item.subCategory);
 
       setRelated(filtered.slice(0,6));
     }
   }, [ products]);
   return (
-    <section className="mt-8 ">
+    <section className="mt-8 maxx-padd-container">
       <Title title1={"Related"} title2={"Products"} title1Styles={"pb-4"}/>
         <Swiper
         autoplay={{
@@ -58,11 +58,11 @@ const RelatedProducts = ({category, subCategory}) => {
           
         }}
         modules={[Autoplay, Pagination]}
-        className="md:h-[480px] lg:h-[480px] xl:h-[480px] h-[555px] "
+        className="md:h-[480px] lg:h-[480px] xs:h-[480px] xl:h-[480px] h-[555px] "
       >
         {related.map((product) => (
-          <SwiperSlide key={product._id}>
-            <Item product={product} />
+          <SwiperSlide>
+            <Item  key={product._id} product={product} />
           </SwiperSlide>
         ))}
       </Swiper>
