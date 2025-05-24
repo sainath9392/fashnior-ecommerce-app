@@ -38,25 +38,26 @@ const ShopContextProvider = (props) => {
     toast.success("Item Added to the Cart");
   };
 
-  const getCartcount = () =>{
+  const getCartcount = () => {
     let totalCount = 0;
-    for(const items in cartItems){
-      for(const item in cartItems[items]){
+    for (const items in cartItems) {
+      for (const item in cartItems[items]) {
         try {
-          if(cartItems[items][item] > 0){
-            totalCount += cartItems[items][item]
+          if (cartItems[items][item] > 0) {
+            totalCount += cartItems[items][item];
           }
         } catch (error) {
-          console.log(error)
+          console.log(error);
         }
       }
     }
     return totalCount;
-  }
-
-  useEffect(() => {
-    console.log(cartItems);
-  }, [cartItems]);
+  };
+  const updateQuantity = (itemId, size, quantity) => {
+    let cartData = structuredClone(cartItems);
+    cartData[itemId][size] = quantity;
+    setCartItems(cartData);
+  };
 
   const value = {
     currency,
@@ -70,7 +71,10 @@ const ShopContextProvider = (props) => {
     token,
     setToken,
     addToCart,
-    getCartcount
+    getCartcount,
+    cartItems,
+    setCartItems,
+    updateQuantity
   };
   return (
     <ShopContext.Provider value={value}>{props.children}</ShopContext.Provider>
