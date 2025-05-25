@@ -3,6 +3,9 @@ import { ShopContext } from "../context/ShopContext";
 import Title from "../components/Title";
 import { FaRegWindowClose } from "react-icons/fa";
 import { FaMinus, FaPlus } from "react-icons/fa6";
+import CartTotal from "../components/CartTotal";
+import Footer from "../components/Footer";
+import { toast } from "react-toastify";
 
 const Cart = () => {
   const {
@@ -53,13 +56,22 @@ const Cart = () => {
     }
   };
 
+  const handleCheckout = ()=>{
+    if(getCartcount() > 0){
+      navigate('/place-order');
+    }
+    else{
+      toast.error("Add Items to Proceed!")
+    }
+  }
+
   return (
     <div>
       <div className="bg-primary mb-16">
         <div className="max-padd-container py-10">
           {/* title */}
           <div className="flexStart gap-x-4">
-            <Title title1={`Cart`} title2={`List`} title1Styles={"h3"} />
+            <Title title1={`Cart`} title2={` List`} title1Styles={"h3"} />
             <h5 className="medium-15 text-gray-500 relative bottom-1.5">
               ({getCartcount()} Items)
             </h5>
@@ -119,8 +131,17 @@ const Cart = () => {
               );
             })}
           </div>
+          <div className="flex my-20">
+            <div className="w-full sm:w-[450px]">
+              <CartTotal />
+              <button onClick={()=>handleCheckout()} className="btn-secondary mt-7">Proceed to Checkout</button>
+            </div>
+            
+          </div>
         </div>
+        
       </div>
+      <Footer />
     </div>
   );
 };
