@@ -9,7 +9,7 @@ import Navbar from "./Navbar";
 import { ShopContext } from "../context/ShopContext";
 
 const Header = () => {
-  const { token, getCartcount } = useContext(ShopContext);
+  const { token, getCartcount, navigate } = useContext(ShopContext);
   const [menuOpened, setMenuOpened] = useState(false);
   const toggleMenu = () => {
     setMenuOpened((prev) => !prev);
@@ -56,7 +56,7 @@ const Header = () => {
                 <TbUserCircle className="text-[29px] max-sm:text-[18px] cursor-pointer" />
               </div>
             ) : (
-              <button className="btn-light  cursor-pointer flexCenter gap-x-2">
+              <button onClick={()=>navigate("/login")} className="btn-light  cursor-pointer flexCenter gap-x-2">
                 Login
                 <RiUserLine className="text-xl max-sm:text-[18px]" />
               </button>
