@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaBarsStaggered, FaRegCircleUser } from "react-icons/fa6";
 
@@ -9,11 +9,13 @@ import Navbar from "./Navbar";
 import { ShopContext } from "../context/ShopContext";
 
 const Header = () => {
-  const { token, getCartcount, navigate } = useContext(ShopContext);
+  const { setToken, token, getCartcount, navigate } = useContext(ShopContext);
   const [menuOpened, setMenuOpened] = useState(false);
   const toggleMenu = () => {
     setMenuOpened((prev) => !prev);
   };
+
+  const logout = () => {};
 
   return (
     <header className="max-padd-container w-full z-50">
@@ -32,7 +34,7 @@ const Header = () => {
             containerStyles={`${
               menuOpened
                 ? "flex items-start flex-col gap-y-8 fixed top-16 right-6 p-5 bg-white rounded-xl shadow-md w-52 ring-1 ring-slate-900/5 z-50"
-                : "hidden xl:flex gap-x-5 xl:gap-x-10 medium-15 ring-1 ring-slate-900/5 rounded-full p-1  "
+                : "hidden xl:flex gap-x-5 xl:gap-x-10 medium-15 ring-1 ring-slate-900/5 rounded-full p-1 "
             }`}
           />
         </div>
@@ -51,15 +53,37 @@ const Header = () => {
             </span>
           </Link>
           <div className="group relative">
-            {token ? (
-              <div>
-                <TbUserCircle className="text-[29px] max-sm:text-[18px] cursor-pointer" />
-              </div>
-            ) : (
-              <button onClick={()=>navigate("/login")} className="btn-light  cursor-pointer flexCenter gap-x-2">
-                Login
-                <RiUserLine className="text-xl max-sm:text-[18px]" />
-              </button>
+            <div>
+              {token ? (
+                <div className="">
+                  <TbUserCircle className="text-[29px] max-sm:text-[18px] cursor-pointer" />
+                </div>
+              ) : (
+                <button
+                  onClick={() => navigate("/login")}
+                  className="btn-light  cursor-pointer flexCenter gap-x-2"
+                >
+                  Login
+                  <RiUserLine className="text-xl max-sm:text-[18px]" />
+                </button>
+              )}
+            </div>
+            {/* Dropdown */}
+            {token && (
+              <ul className="bg-white p-2 w-32 ring-1 ring-slate-900/5 rounded absolute right-0 top-7 hidden group-hover:flex flex-col regular-14 shadow-md z-50 ">
+                <li
+                  onClick={() => navigate("/orders")}
+                  className="p-2 text-tertiary rounded-md hover:bg-primary cursor-pointer "
+                >
+                  Orders
+                </li>
+                <li
+                  onClick={() => logout()}
+                  className="p-2 text-tertiary rounded-md hover:bg-primary cursor-pointer "
+                >
+                  Logout
+                </li>
+              </ul>
             )}
           </div>
         </div>
