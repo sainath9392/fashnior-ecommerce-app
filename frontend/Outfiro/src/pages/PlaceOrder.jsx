@@ -98,8 +98,8 @@ const PlaceOrder = () => {
               <div className="my-6">
                 <h3 className="bold-20 mb-5">Payment <span className="text-secondary">Method</span></h3>
                 <div className="flex gap-3">
-                  <div onClick={()=>setmethod('stripe')} className={`${method === 'stripe' ? "btn-dark" : "btn-white"} !py-1 text-xs cursor-pointer`}>Stripe</div>
-                  <div onClick={()=>setmethod('cod')} className={`${method === 'cod' ? "btn-dark" : "btn-white"} !py-1 text-xs cursor-pointer`}>Cash On Delivery</div>
+                  <div onClick={()=>setmethod('stripe')} className={`${method === 'stripe' ? "btn-dark" : "btn-white"} !py-1 text-xs cursor-pointer border border-gray-300`}>Stripe</div>
+                  <div onClick={()=>setmethod('cod')} className={`${method === 'cod' ? "btn-dark" : "btn-white"} !py-1 text-xs cursor-pointer border border-gray-300`}>Cash On Delivery</div>
                 </div>
               </div>
               <div className="">
