@@ -11,7 +11,7 @@ import "swiper/css/navigation";
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
-import Item from "./item";
+import Item from "./Item";
 import { ShopContext } from "../context/ShopContext";
 
 const NewArrivals = () => {
