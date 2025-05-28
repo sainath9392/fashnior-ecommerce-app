@@ -56,7 +56,7 @@ const Header = () => {
             <div>
               {token ? (
                 <div className="">
-                  <TbUserCircle className="text-[29px] max-sm:text-[18px] cursor-pointer" />
+                  <TbUserCircle className="text-[29px] max-sm:text-[27px] cursor-pointer" />
                 </div>
               ) : (
                 <button
