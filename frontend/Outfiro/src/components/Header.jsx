@@ -24,7 +24,7 @@ const Header = () => {
 
         <Link to={"/"} className="flex flex-1 xs:pr-5">
           <div className="bold-32 ">
-            Outfir<span className="text-secondary">o</span>
+            Fashni<span className="text-secondary">o</span>r
           </div>
         </Link>
 
