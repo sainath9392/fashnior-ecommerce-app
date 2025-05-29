@@ -17,12 +17,12 @@ const Login = () => {
             alt="loginimg"
             className="object-cover h-full w-full"
           />
-          <h5 className="bold-40 absolute top-3 left-3 bg-white p-2 rounded-full">Outfir<span className="text-secondary">o</span></h5>
+          <h5 className="bold-40 absolute top-3 left-3 bg-white p-2 rounded-full">Fashni<span className="text-secondary">o</span>r</h5>
         </div>
         {/* formSide */}
         <div className="flex w-full sm:1/2 items-center justify-center text-[90%]">
           <form className="flex flex-col items-center w-[90%] sm:max-w-md m-auto gap-y-5">
-            <h5 className="bold-40 absolute top-3 left-3 bg-white p-2 rounded-full">Outfir<span className="text-secondary">o</span></h5>
+            <h5 className="bold-40 absolute top-3 left-3 bg-white p-2 rounded-full">Fashni<span className="text-secondary">o</span>r</h5>
             <div className="w-full mb-4">
               <h3 className="bold-36">{currState}</h3>
             </div>
