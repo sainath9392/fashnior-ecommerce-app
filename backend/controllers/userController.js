@@ -17,7 +17,7 @@ const loginUser = async (req, res) => {
 
     if (!user) {
       return (
-        res,
+        res.
         json({ success: false, message: "User doesn't exist please register" })
       );
     }
