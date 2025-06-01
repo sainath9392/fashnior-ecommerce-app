@@ -9,7 +9,31 @@ const createToken = (id) => {
 };
 
 //controller function for user login
-const loginUser = async (req, res) => {};
+const loginUser = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    const user = await userModel.findOne({ email });
+
+    if (!user) {
+      return (
+        res,
+        json({ success: false, message: "User doesn't exist please register" })
+      );
+    }
+
+    const isMatch = await bcrypt.compare(password, user.password);
+
+    if (isMatch) {
+      const token = createToken(user._id);
+      res.json({ success: true, token });
+    } else {
+      res.json({ success: true, message: "Invalid credentials" });
+    }
+  } catch (error) {
+    res.json({ success: false, message: error.message });
+  }
+};
 
 //controller function for user register
 const registerUser = async (req, res) => {
@@ -49,8 +73,8 @@ const registerUser = async (req, res) => {
     const token = createToken(user._id);
     res.json({ success: true, token });
   } catch (error) {
-    console.log(error)
-    res.json({success:false, message:error.message})
+    console.log(error);
+    res.json({ success: false, message: error.message });
   }
 };
 
