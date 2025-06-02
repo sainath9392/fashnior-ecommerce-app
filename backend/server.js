@@ -4,6 +4,7 @@ import "dotenv/config";
 import connectDB from "./config/db.js";
 import connectCloudinary from "./config/cloudinary.js";
 import userRouter from "./routes/userRoute.js";
+import productRouter from "./routes/productRoute.js";
 
 //App config
 const app = express();
@@ -17,6 +18,7 @@ connectCloudinary()
 
 //end points
 app.use('/api/user',userRouter)
+app.use('/api/product',productRouter)
 
 //Api endpoints
 app.get("/", (req, res) => {
