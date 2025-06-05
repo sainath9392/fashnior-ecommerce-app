@@ -51,7 +51,6 @@ const addproduct = async (req, res) => {
     await product.save();
 
     res.json({ success: true, message: "Product Added" });
-
   } catch (error) {
     console.log(error);
     res.json({ success: false, message: error.message });
@@ -64,6 +63,14 @@ const removeProduct = async (req, res) => {};
 //Controller function for single product details
 const singleProduct = async (req, res) => {};
 
-const listProduct = async (Request, res) => {};
+const listProduct = async (req, res) => {
+  try {
+    const products = await productModel.find({})
+    res.json({success:true, products})
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: error.message });
+  }
+};
 
 export { addproduct, listProduct, removeProduct, singleProduct };
