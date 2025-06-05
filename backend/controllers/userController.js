@@ -16,10 +16,10 @@ const loginUser = async (req, res) => {
     const user = await userModel.findOne({ email });
 
     if (!user) {
-      return (
-        res.
-        json({ success: false, message: "User doesn't exist please register" })
-      );
+      return res.json({
+        success: false,
+        message: "User doesn't exist please register",
+      });
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
@@ -79,6 +79,22 @@ const registerUser = async (req, res) => {
 };
 
 //controller function for user admin login
-const adminLoginUser = async (req, res) => {};
+const adminLoginUser = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    if (
+      email == process.env.ADMIN_EMAIL &&
+      password === process.env.ADMIN_PASS
+    ) {
+      const token = jwt.sign(email + password, process.env.JWT_SECRET);
+      res.json({ succes: true, token });
+    } else {
+      res.json({ succes: false, message: "Inavlid Credentials" });
+    }
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: error.message });
+  }
+};
 
 export { loginUser, adminLoginUser, registerUser };
