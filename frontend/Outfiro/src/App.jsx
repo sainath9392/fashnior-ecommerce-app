@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import Collection from "./pages/Collection";
 import Cart from "./pages/Cart";
 import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import PlaceOrder from "./pages/PlaceOrder";
 import Login from "./pages/Login";
 import Orders from "./pages/Orders";
