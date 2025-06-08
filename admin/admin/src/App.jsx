@@ -29,9 +29,9 @@ const App = () => {
           <div className=" max-w-[1440px] flex flex-col sm:flex-row">
             <Slidebar setToken={setToken} />
             <Routes>
-              <Route path="/" element={<Add setToken={setToken} />} />
-              <Route path="/list" element={<List setToken={setToken} />} />
-              <Route path="/orders" element={<Orders setToken={setToken} />} />
+              <Route path="/" element={<Add token={token} />} />
+              <Route path="/list" element={<List token={token} />} />
+              <Route path="/orders" element={<Orders token={token} />} />
             </Routes>
           </div>
         </div>
