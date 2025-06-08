@@ -39,10 +39,10 @@ const Add = ({ token }) => {
         formData,
         { headers: { token } }
       );
-      if(response.data.success){
-        toast.success("Item Added Successfully")
-      }else{
-        toast.error(response.data.message)
+      if (response.data.success) {
+        toast.success("Item Added Successfully");
+      } else {
+        toast.error(response.data.message);
       }
     } catch (error) {
       toast.error(error.message);
@@ -273,7 +273,7 @@ const Add = ({ token }) => {
           </div>
           <div className="flexStart gap-2 my-2">
             <input
-              onChange={(e) => setPopular(prev => !prev)}
+              onChange={(e) => setPopular((prev) => !prev)}
               checked={popular}
               type="checkbox"
               id="popular"
