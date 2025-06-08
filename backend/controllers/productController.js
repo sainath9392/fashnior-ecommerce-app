@@ -39,7 +39,7 @@ const addproduct = async (req, res) => {
       price: Number(price),
       category,
       subCategory,
-      popular: popular == "true" ? true : " false",
+      popular: popular == "true" ? true : false,
       sizes: sizes ? JSON.parse(sizes) : [], //default empty array
       image: imagesUrl,
       date: Date.now(),
