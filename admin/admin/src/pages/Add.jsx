@@ -43,6 +43,18 @@ const Add = ({ token }) => {
         toast.success("Item Added Successfully");
       } else {
         toast.error(response.data.message);
+        setImage1(false);
+        setImage2(false);
+        setImage3(false);
+        setImage4(false);
+
+        setName("");
+        setDescription("");
+        setPrice("");
+        setCategory("Men");
+        setSubCategory("Topwear");
+        setPopular(false);
+        setSizes([]);
       }
     } catch (error) {
       toast.error(error.message);
