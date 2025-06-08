@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import login from "../assets/loginImg.png";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import axios from "axios";
-import { backen_url } from "../App";
+import { backend_url } from "../App";
 import { toast } from "react-toastify";
 
 const Login = ({ setToken }) => {
@@ -19,7 +19,7 @@ const Login = ({ setToken }) => {
   const onSubmitHandler = async (e) => {
     try {
       e.preventDefault();
-      const response = await axios.post(backen_url + "/api/user/admin", {
+      const response = await axios.post(backend_url + "/api/user/admin", {
         email,
         password,
       });
