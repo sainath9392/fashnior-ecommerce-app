@@ -41,8 +41,6 @@ const Add = ({ token }) => {
       );
       if (response.data.success) {
         toast.success("Item Added Successfully");
-      } else {
-        toast.error(response.data.message);
         setImage1(false);
         setImage2(false);
         setImage3(false);
@@ -55,6 +53,8 @@ const Add = ({ token }) => {
         setSubCategory("Topwear");
         setPopular(false);
         setSizes([]);
+      } else {
+        toast.error(response.data.message);
       }
     } catch (error) {
       toast.error(error.message);
