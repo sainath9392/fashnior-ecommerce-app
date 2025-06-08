@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import upload_icon from "../assets/upload_icon.png";
 import axios from "axios";
-import { backen_url } from "../App";
+import { backend_url } from "../App";
 import { toast } from "react-toastify";
 
 const Add = ({ token }) => {
@@ -35,12 +35,12 @@ const Add = ({ token }) => {
       image3 && formData.append("image3", image3);
       image4 && formData.append("image4", image4);
       const response = await axios.post(
-        backen_url + "/api/product/add",
+        backend_url + "/api/product/add",
         formData,
         { headers: { token } }
       );
       if (response.data.success) {
-        toast.success("Item Added Successfully");
+        toast.success("Product Added Successfully");
         setImage1(false);
         setImage2(false);
         setImage3(false);

@@ -7,7 +7,7 @@ import Add from "./pages/Add";
 import List from "./pages/List";
 import Orders from "./pages/Orders";
 import Login from "./components/Login";
-export const backen_url = import.meta.env.VITE_BACKEND_URL;
+export const backend_url = import.meta.env.VITE_BACKEND_URL;
 export const currency = "$";
 
 const App = () => {
