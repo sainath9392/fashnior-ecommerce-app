@@ -15,7 +15,11 @@ const Header = () => {
     setMenuOpened((prev) => !prev);
   };
 
-  const logout = () => {};
+  const logout = () => {
+    localStorage.removeItem('token')
+    setToken('')
+    navigate('/login')
+  };
 
   return (
     <header className="max-padd-container w-full z-50">

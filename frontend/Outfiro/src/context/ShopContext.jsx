@@ -13,7 +13,7 @@ const ShopContextProvider = (props) => {
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
   const [showSearch, setShowSearch] = useState(true);
-  const [token, setToken] = useState("dummy");
+  const [token, setToken] = useState("");
   const [cartItems, setCartItems] = useState({});
   const [products, setProducts] = useState([]);
 
@@ -82,13 +82,13 @@ const ShopContextProvider = (props) => {
   const getProducts = async () => {
     try {
       const response = await axios.get(backendUrl + "/api/product/list");
-      if(response.data.success){
-        setProducts(response.data.products)
-      }else{
-        toast.error(response.data.message)
+      if (response.data.success) {
+        setProducts(response.data.products);
+      } else {
+        toast.error(response.data.message);
       }
     } catch (error) {
-      toast.error(error.message)
+      toast.error(error.message);
     }
   };
 
@@ -112,9 +112,12 @@ const ShopContextProvider = (props) => {
     backendUrl,
   };
 
-  useEffect(()=>{
-    getProducts()
-  },[])
+  useEffect(() => {
+    if (!token && localStorage.getItem("token")) {
+      setToken(localStorage.getItem("token"));
+    }
+    getProducts();
+  }, []);
 
   return (
     <ShopContext.Provider value={value}>{props.children}</ShopContext.Provider>
