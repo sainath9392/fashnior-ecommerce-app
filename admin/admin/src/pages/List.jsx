@@ -57,11 +57,11 @@ const List = ({ token }) => {
       </div>
       {list.map((item)=>(
         <div key={item._id} className="grid grid-cols-[1fr_1fr_1fr_1fr_1fr] md:grid-cols-[1fr_3.5fr_1.5fr_1fr_1fr] items-center py-1 px-2 bg-white bold-14 sm:bold-15 mb-1 rounded">
-          <img src={item.image[0]} alt="productimg" className="w-12 rounded-lg" />
+          <img src={item.image[0]} alt="productimg" className="w-14 h-17 rounded-lg" />
           <h5 className="text-sm font-semibold">{item.name}</h5>
-          <p className="text-sm font-semibold">{item.category}</p>
-          <div className="text-sm font-semibold">currency: {currency}{item.price}</div>
-          <div className="text-right md:text-center cursor-pointer" onClick={()=>removeProduct(item._id)}><TbTrash className="text-red-500" /></div>
+          <p className="text-sm max-sm:ml-2 ml-2 font-semibold">{item.category}</p>
+          <div className="text-sm font-semibold">{currency}{item.price}</div>
+          <div className="text-right ml-5 md:text-center cursor-pointer" onClick={()=>removeProduct(item._id)}><TbTrash className="text-red-500" /></div>
         </div>
       ))}
     </div>
