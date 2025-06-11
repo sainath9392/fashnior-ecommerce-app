@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
 
-
 export const ShopContext = createContext();
 
 const ShopContextProvider = (props) => {
@@ -94,7 +93,7 @@ const ShopContextProvider = (props) => {
       let itemInfo = products.find((product) => product._id === items);
       for (const item in cartItems[items]) {
         try {
-          if (cartItems[items][item] > 0) {
+          if (itemInfo && cartItems[items][item] > 0) {
             totalAmount += itemInfo.price * cartItems[items][item];
           }
         } catch (error) {
@@ -121,16 +120,13 @@ const ShopContextProvider = (props) => {
   //get user cart
   const getUserCart = async (token) => {
     try {
-      
       const response = await axios.post(
         backendUrl + "/api/cart/get",
         {},
         { headers: { token } }
       );
-      if (response.data.success) {
-        setCartItems(response.data.cartData);
-        console.log(cartItems);
-      }
+      console.log(response);
+      setCartItems(response.data.cartData);
     } catch (error) {
       console.log(error);
       toast.error(error.message);
@@ -143,7 +139,7 @@ const ShopContextProvider = (props) => {
       getUserCart(localStorage.getItem("token"));
     }
     getProducts();
-  }, []);
+  }, [token, cartItems ,products]);
 
   const value = {
     currency,
