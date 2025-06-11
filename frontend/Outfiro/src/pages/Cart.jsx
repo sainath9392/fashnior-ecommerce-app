@@ -106,12 +106,12 @@ const Cart = () => {
                       <p className="bold-14 my-0.5">{item.size}</p>
                       <div className="flexBetween">
                         <div className="flex items-center ring-1 ring-slate-900/5 rounded-full overflow-hidden bg-primary">
-                          <buttton className="p-1.5 bg-white text-secondary rounded-full shadow-md">
+                          <button className="p-1.5 bg-white text-secondary rounded-full shadow-md">
                             <FaMinus
                               className="text-xs"
                               onClick={() => decrement(item._id, item.size)}
                             />
-                          </buttton>
+                          </button>
                           <p className="px-2">{quantities[key]}</p>
                           <button className="p-1.5 bg-white text-secondary rounded-full shadow-md">
                             <FaPlus
