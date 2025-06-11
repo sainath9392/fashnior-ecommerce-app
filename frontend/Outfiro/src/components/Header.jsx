@@ -22,7 +22,7 @@ const Header = () => {
   };
 
   return (
-    <header className="max-padd-container w-full z-50">
+    <header className="max-padd-container w-full z-50 sticky top-0 bg-white">
       <div className="flexBetween py-3">
         {/* logo Left side */}
 
