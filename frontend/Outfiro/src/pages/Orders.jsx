@@ -1,19 +1,50 @@
 import React, { useContext, useEffect, useState } from "react";
 import Title from "../components/Title";
-import { products } from "../assets/data";
 import { ShopContext } from "../context/ShopContext";
 import Footer from "../components/Footer";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const Orders = () => {
-  const { products, currency } = useContext(ShopContext);
+  const { products, currency, backendUrl, token } = useContext(ShopContext);
 
   const [orderData, setOrderData] = useState([]);
 
+  const loadOrderData = async () => {
+    try {
+      if (!token) {
+        return null;
+      }
+      const response = await axios.post(
+        backendUrl + "/api/order/userorders",
+        {},
+        {
+          headers: { token },
+        }
+      );
+      if (response.data.success) {
+        let allOrderItem = []
+        response.data.orders.map((order)=>{
+          order.items.map((item)=>{
+            item['status'] = order.status
+            item['paymemt'] = order.payment
+            item['paymentMethod'] = order.paymentMethod
+            item['date'] = order.date
+            allOrderItem.push(item)
+          })
+        })
+        setOrderData(allOrderItem.reverse())
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message)
+    }
+  };
+
   //temporary data
   useEffect(() => {
-    const data = products.slice(0, 5);
-    setOrderData(data);
-  }, [products]);
+    loadOrderData();
+  }, [token]);
   return (
     <div>
       <div className="bg-primary mb-16">
