@@ -71,7 +71,7 @@ const PlaceOrder = () => {
         if(response.data.success){
           toast.success(response.data.message)
           setCartItems({})
-          navigate('/')
+          navigate('/orders')
         }else{
           toast.error(response.data.message)
         }
