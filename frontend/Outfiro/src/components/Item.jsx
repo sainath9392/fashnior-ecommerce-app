@@ -6,7 +6,7 @@ const Item = ({ product }) => {
   return (
     <div className="relative bottom-12">
       <Link to={`/product/${product._id}`} className="flexCenter relative top-12 overflow-hidden m-2.5 ">
-        <img src={product.image[0]} alt="item" className="h-100 w-100 sm:max-w-70 rounded-lg sm:max-h-70 object-contain" />
+        <img src={product.image[0]} alt="item" className="h-50 sm:max-w-70 rounded-lg sm:max-h-70 object-contain" />
       </Link>
       <div className="p-3 rounded-lg pt-12 bg-white shadows">
         <h4 className="bold-15 line-clamp-1 !my-0 ">{product.name}</h4>
