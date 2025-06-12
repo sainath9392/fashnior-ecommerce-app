@@ -51,11 +51,11 @@ const getUserCart = async (req, res) => {
     const { userId } = req.body;
     const userData = await userModel.findById(userId);
     const cartData = await userData.cartData;
-    res.json({ succes: true, cartData });
+    res.json({ success: true, cartData });
     
   } catch (error) {
     console.log(error);
-    res.json({ succes: false, message: error.message });
+    res.json({ success: false, message: error.message });
   }
 };
 

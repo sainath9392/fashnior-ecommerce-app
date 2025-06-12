@@ -31,7 +31,14 @@ const palceOrder = async (req, res) => {
 const palceOrderStripe = async (req, res) => {};
 
 //Controller function for getting all orders data for Admin panel
-const allOrders = async (req, res) => {};
+const allOrders = async (req, res) => {
+  try {
+    const orders = await orderModel.find({});
+    res.json({ success: true, orders });
+  } catch (error) {
+    res.json({ success: false, message: error.message });
+  }
+};
 
 //Controller function for getting user orders for frontend
 const userOrders = async (req, res) => {
@@ -41,7 +48,7 @@ const userOrders = async (req, res) => {
     res.json({ success: true, orders });
   } catch (error) {
     console.log(error);
-    res.json({ succes: false, message: error.message });
+    res.json({ success: false, message: error.message });
   }
 };
 
