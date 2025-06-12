@@ -89,8 +89,8 @@ const Orders = () => {
                           <p>{new Date(item.date).toDateString()}</p>
                         </div>
                         <div className="flex items-center gap-x-2">
-                          <h5>payment</h5>
-                          <p>{"Stripe"}</p>
+                          <h5>payment:</h5>
+                          <p>{item.paymentMethod}</p>
                         </div>
                       </div>
                       {/* Status & button */}
