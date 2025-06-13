@@ -45,6 +45,7 @@ const Orders = () => {
   useEffect(() => {
     loadOrderData();
   }, [token]);
+  
   return (
     <div>
       <div className="bg-primary mb-16">
@@ -95,11 +96,11 @@ const Orders = () => {
                       </div>
                       {/* Status & button */}
                       <div className="flex items-center gap-2">
-                        <div>
-                          <p className="min-w-2 h-2 rounded-full bg-green-500"></p>
+                        <div className="flex items-center gap-2">
+                          <p className="w-2 h-2 rounded-full bg-green-500"></p>
                           <p>{item.status}</p>
                         </div>
-                        <button className="btn-secondary !text-xs !p-1.5 !py-1">
+                        <button onClick={loadOrderData} className="btn-secondary !text-xs !p-1.5 !py-1">
                           Track Order
                         </button>
                       </div>
