@@ -3,7 +3,7 @@ import Title from "../components/Title";
 import CartTotal from "../components/CartTotal";
 import Footer from "../components/Footer";
 import { ShopContext } from "../context/ShopContext";
-import axios from 'axios'
+import axios from "axios";
 import { toast } from "react-toastify";
 
 const PlaceOrder = () => {
@@ -16,7 +16,7 @@ const PlaceOrder = () => {
     setCartItems,
     getCartcount,
     navigate,
-    backendUrl
+    backendUrl,
   } = useContext(ShopContext);
   const [method, setmethod] = useState("cod");
 
@@ -42,49 +42,118 @@ const PlaceOrder = () => {
     }));
   };
 
-  const onSubmitHandler = async(e) => {
-    e.preventDefault()
+  const onSubmitHandler = async (e) => {
+    e.preventDefault();
     try {
-      let orderItems = []
-      for(const items in cartItems){
-        for(const item in cartItems[items]){
-          if(cartItems[items][item] > 0){
-            const itemInfo = structuredClone(products.find(product => product._id === items))
-            if(itemInfo){
-              itemInfo.size = item
-              itemInfo.quantity = cartItems[items][item]
-              orderItems.push(itemInfo)
+      let orderItems = [];
+      for (const items in cartItems) {
+        for (const item in cartItems[items]) {
+          if (cartItems[items][item] > 0) {
+            const itemInfo = structuredClone(
+              products.find((product) => product._id === items)
+            );
+            if (itemInfo) {
+              itemInfo.size = item;
+              itemInfo.quantity = cartItems[items][item];
+              orderItems.push(itemInfo);
             }
           }
         }
       }
       let orderData = {
-        address:formData,
-        items:orderItems,
-        amount: getCartAmount() > 500 ? getCartAmount():getCartAmount() + delivery_charges
-      }
-      switch(method){
+        address: formData,
+        items: orderItems,
+        amount:
+          getCartAmount() > 500
+            ? getCartAmount()
+            : getCartAmount() + delivery_charges,
+      };
+      switch (method) {
         //api calls for COD
-        case 'cod':{
-        const response = await axios.post(backendUrl + '/api/order/place',orderData,{headers:{token}} )
-        console.log(response)
-        if(response.data.success){
-          toast.success(response.data.message)
-          setCartItems({})
-          navigate('/orders')
-        }else{
-          toast.error(response.data.message)
-        }
+        case "cod": {
+          const response = await axios.post(
+            backendUrl + "/api/order/place",
+            orderData,
+            { headers: { token } }
+          );
+          console.log(response);
+          if (response.data.success) {
+            toast.success(response.data.message);
+            setCartItems({});
+            navigate("/orders");
+          } else {
+            toast.error(response.data.message);
+          }
           break;
         }
-          default:
-            break
+
+        case "razorpay": {
+          const createOrderResponse = await axios.post(
+            backendUrl + "/api/payment/create-order",
+            orderData,
+            {
+              headers: { token },
+            }
+          );
+
+          if (!createOrderResponse.data.success) {
+            toast.error("Failed to create Razorpay order");
+            return;
+          }
+
+          const { orderId, amount, currency, razorpay_key_id, order_db_id } =
+            createOrderResponse.data;
+
+          const options = {
+            key: razorpay_key_id,
+            amount: amount,
+            currency: currency,
+            name: "Fashnior",
+            description: "Order Payment",
+            order_id: orderId,
+            handler: async function (response) {
+              try {
+                await axios.post(
+                  backendUrl + "/api/payment/verify",
+                  {
+                    razorpay_order_id: response.razorpay_order_id,
+                    razorpay_payment_id: response.razorpay_payment_id,
+                    razorpay_signature: response.razorpay_signature,
+                    orderId: order_db_id,
+                  },
+                  {
+                    headers: { token },
+                  }
+                );
+
+                toast.success("Payment Successful!");
+                setCartItems({});
+                navigate("/orders");
+              } catch (error) {
+                toast.error("Payment verification failed");
+              }
+            },
+            prefill: {
+              name: `${formData.firstName} ${formData.lastName}`,
+              email: formData.email,
+              contact: formData.phone,
+            },
+            theme: {
+              color: "#3399cc",
+            },
+          };
+
+          const rzp = new window.Razorpay(options);
+          rzp.open();
+          break;
+        }
+        default:
+          break;
       }
     } catch (error) {
-        console.log(error)
-        toast.error(error.message)
+      console.log(error);
+      toast.error(error.message);
     }
-
   };
 
   return (
@@ -198,12 +267,12 @@ const PlaceOrder = () => {
                 </h3>
                 <div className="flex gap-3">
                   <div
-                    onClick={() => setmethod("stripe")}
+                    onClick={() => setmethod("razorpay")}
                     className={`${
-                      method === "stripe" ? "btn-dark" : "btn-white"
+                      method === "razorpay" ? "btn-dark" : "btn-white"
                     } !py-1 text-xs cursor-pointer border border-gray-300`}
                   >
-                    Stripe
+                    Razor Pay
                   </div>
                   <div
                     onClick={() => setmethod("cod")}
