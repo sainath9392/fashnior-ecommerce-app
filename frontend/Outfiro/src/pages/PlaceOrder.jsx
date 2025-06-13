@@ -126,10 +126,20 @@ const PlaceOrder = () => {
                   }
                 );
 
-                toast.success("Payment Successful!");
+                // ✅ Clear backend cart
+                await axios.post(
+                  backendUrl + "/api/cart/clear",
+                  {},
+                  {
+                    headers: { token },
+                  }
+                );
+
+                // ✅ Clear frontend cart
                 setCartItems({});
-                localStorage.removeItem("cartItems");
-                setTimeout(() => navigate("/orders"), 100);
+
+                toast.success("Payment Successful!");
+                navigate("/orders");
               } catch (error) {
                 toast.error("Payment verification failed");
               }
