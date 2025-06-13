@@ -16,9 +16,9 @@ const Header = () => {
   };
 
   const logout = () => {
-    localStorage.removeItem('token')
-    setToken('')
-    navigate('/login')
+    localStorage.removeItem("token");
+    setToken("");
+    navigate("/login");
   };
 
   return (
@@ -49,7 +49,9 @@ const Header = () => {
             onClick={toggleMenu}
             className="xl:hidden cursor-pointer text-xl "
           />
-          <FaSearch className="text-lg cursor-pointer" />
+          <Link to={"/collection"}>
+            <FaSearch className="text-lg cursor-pointer" />
+          </Link>
           <Link to={"/cart"} className="flex relative">
             <TbBasket className="text-[27px]" />
             <span className="bg-secondary text-white text-[12px] font-semibold left-1.5 -top-3.5 flexCenter w-4 h-4 rounded-full shadow-md">

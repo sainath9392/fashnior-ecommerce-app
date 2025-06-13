@@ -17,21 +17,21 @@ const Footer = () => {
             <FaLocationDot />
             <div>
               <h5 className="h5">Location</h5>
-              <p>123, Avenue, Cl</p>
+              <p>Hyderabad,Telangana</p>
             </div>
           </div>
           <div className="flexCenter gap-x-6">
             <FaPhone />
             <div>
               <h5 className="h5">Phone</h5>
-              <p>+0123456789</p>
+              <p>+919392777436</p>
             </div>
           </div>
           <div className="flexCenter gap-x-6">
             <FaMailBulk />
             <div>
               <h5 className="h5">Email Support</h5>
-              <p>info@outfiro.com</p>
+              <p>sainathduvvuri03@gmail.com</p>
             </div>
           </div>
         </div>
@@ -40,7 +40,7 @@ const Footer = () => {
         {/* logo - Left side */}
         <div className="flex flex-col max-w-sm gap-y-5">
           <div className="bold-32">
-            Outfir<span className="text-secondary">o</span>
+            Fashni<span className="text-secondary">o</span>r
           </div>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
