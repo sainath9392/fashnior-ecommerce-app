@@ -113,7 +113,7 @@ const PlaceOrder = () => {
             order_id: orderId,
             handler: async function (response) {
               try {
-                await axios.post(
+                const verifyResponse = await axios.post(
                   backendUrl + "/api/payment/verify",
                   {
                     razorpay_order_id: response.razorpay_order_id,
@@ -121,29 +121,27 @@ const PlaceOrder = () => {
                     razorpay_signature: response.razorpay_signature,
                     orderId: order_db_id,
                   },
-                  {
-                    headers: { token },
-                  }
+                  { headers: { token } }
                 );
 
-                // ✅ Clear backend cart
-                await axios.post(
-                  backendUrl + "/api/cart/clear",
-                  {},
-                  {
-                    headers: { token },
-                  }
-                );
-
-                // ✅ Clear frontend cart
-                setCartItems({});
-
-                toast.success("Payment Successful!");
-                navigate("/orders");
+                if (verifyResponse.data.success) {
+                  await axios.post(
+                    backendUrl + "/api/cart/clear",
+                    {},
+                    { headers: { token } }
+                  ); // ✅ clear from backend
+                  setCartItems({}); // ✅ clear from context state
+                  toast.success("Payment Successful!");
+                  navigate("/orders");
+                } else {
+                  toast.error("Payment verification failed");
+                }
               } catch (error) {
+                console.error(error);
                 toast.error("Payment verification failed");
               }
             },
+
             prefill: {
               name: `${formData.firstName} ${formData.lastName}`,
               email: formData.email,

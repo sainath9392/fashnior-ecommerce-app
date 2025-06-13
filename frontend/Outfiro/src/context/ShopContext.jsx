@@ -133,12 +133,13 @@ const ShopContextProvider = (props) => {
   };
 
   useEffect(() => {
-    if (!token && localStorage.getItem("token")) {
-      setToken(localStorage.getItem("token"));
-      getUserCart(localStorage.getItem("token"));
+    const storedToken = localStorage.getItem("token");
+    if (!token && storedToken) {
+      setToken(storedToken);
+      getUserCart(storedToken);
     }
     getProducts();
-  }, [token, cartItems ,products]);
+  }, [token]);
 
   const value = {
     currency,
