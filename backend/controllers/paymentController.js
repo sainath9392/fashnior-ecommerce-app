@@ -10,8 +10,7 @@ const razorpay = new Razorpay({
 const placeOrderRazor = async (req, res) => {
   try {
     const { userId, items, amount, address } = req.body; // USD amount
-    const usdToInr = 83.5;
-    const amountInInr = parseFloat((amount * usdToInr).toFixed(2));
+    const amountInInr = parseInt(amount)
     const amountInPaise = Math.round(amountInInr * 100);
 
     const orderData = {

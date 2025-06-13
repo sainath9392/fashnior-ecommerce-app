@@ -128,7 +128,8 @@ const PlaceOrder = () => {
 
                 toast.success("Payment Successful!");
                 setCartItems({});
-                navigate("/orders");
+                localStorage.removeItem("cartItems");
+                setTimeout(() => navigate("/orders"), 100);
               } catch (error) {
                 toast.error("Payment verification failed");
               }
