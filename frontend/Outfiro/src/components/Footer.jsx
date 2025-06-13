@@ -136,7 +136,7 @@ const Footer = () => {
       </div>
       {/* copyrights */}
       <p className="max-padd-container bg-primary medium-14 py-2 px-8 rounded flexBetween mt-6">
-        <span>2025 Outfiro</span>
+        <span>{new Date().getFullYear()} Fashnior</span>
         <span>All rights reserved</span>
       </p>
     </footer>

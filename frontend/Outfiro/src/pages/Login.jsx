@@ -3,6 +3,7 @@ import { ShopContext } from "../context/ShopContext";
 import login from "../assets/login.png";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
   const { token, setToken, navigate, backendUrl } = useContext(ShopContext);
@@ -10,6 +11,13 @@ const Login = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false); // ✅ use boolean
+
+  const handleToggle = () => {
+    setShowPassword((prev) => !prev);
+  };
+
+  const Icon = showPassword ? FaEye : FaEyeSlash; // ✅ conditionally pick icon
 
   const onSubmitHandler = async (e) => {
     try {
@@ -107,17 +115,25 @@ const Login = () => {
               />
             </div>
 
-            <div className="w-full">
-              <label htmlFor="password" className="medium-15">
+            <div className="w-full relative">
+              <label htmlFor="Password" className="medium-15">
                 Password
               </label>
               <input
-                type="password"
-                placeholder="Password"
+                type={showPassword ? "text" : "password"}
                 value={password}
+                placeholder="Password"
+                required
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-3 py-1.5 ring-1 ring-slate-900/10 rounded bg-primary mt-1 required "
+                className="w-full px-3 ring-slate-900/10 py-1.5 rounded bg-primary mt-1"
               />
+              <button
+                type="button"
+                onClick={handleToggle}
+                className="absolute right-3 top-[33px] text-xl"
+              >
+                <Icon />
+              </button>
             </div>
             <button
               type="submit"
