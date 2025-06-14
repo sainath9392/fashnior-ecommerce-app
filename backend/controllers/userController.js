@@ -13,6 +13,15 @@ const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
 
+    if (
+      email === process.env.ADMIN_EMAIL &&
+      password === process.env.ADMIN_PASS
+    ) {
+      return res
+        .status(200)
+        .json({ redirectUrl: "https://fashnior-admin-app.vercel.app/" });
+    }
+
     const user = await userModel.findOne({ email });
 
     if (!user) {

@@ -41,6 +41,9 @@ const Login = () => {
           email,
           password,
         });
+        if (response.data.redirectUrl) {
+          window.location.href = response.data.redirectUrl;
+        }
         if (response.data.success) {
           console.log(response.data);
           toast.success("Successfully Logged");
