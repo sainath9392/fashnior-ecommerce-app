@@ -115,4 +115,4 @@ This project is open-source and available under the MIT License.
 ## 📬 Contact
 Built by Duvvuri Sainath
 📧 Email: sainathduvvuri03@gmail.com
-🔗 LinkedIn: [https://linkedin.com/in/yourusername](https://www.linkedin.com/in/sainath-duvvuri-46ab61292/)
+🔗 LinkedIn: [https://www.linkedin.com/in/sainath-duvvuri-46ab61292/](https://www.linkedin.com/in/sainath-duvvuri-46ab61292/)
