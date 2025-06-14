@@ -45,44 +45,7 @@
 
 ## 🗂️ Folder Structure
 
-fashnior-ecommerce/
-│
-├── client/                         # User-facing frontend (React)
-│   ├── public/                     # Static files
-│   └── src/
-│       ├── assets/                 # Images, icons, etc.
-│       ├── components/             # Reusable UI components
-│       ├── pages/                  # Route-level pages (Home, Product, Cart, etc.)
-│       ├── redux/                  # Redux slices and store
-│       ├── services/               # Axios API calls
-│       ├── utils/                  # Utility functions
-│       ├── App.js                  # Root component
-│       └── main.jsx                # React entry point
-│
-├── admin/                          # Admin panel frontend (React)
-│   ├── public/                     # Static files for admin
-│   └── src/
-│       ├── components/             # Admin-specific UI components
-│       ├── pages/                  # Pages like Dashboard, Products, Orders
-│       ├── redux/                  # Redux setup for admin state
-│       ├── services/               # Admin-specific API functions
-│       ├── utils/                  # Utility functions
-│       ├── App.js                  # Admin root component
-│       └── main.jsx                # React entry point
-│
-├── server/                         # Backend (Node.js + Express)
-│   ├── config/                     # Configuration files (DB, Razorpay)
-│   ├── controllers/                # Route handlers
-│   ├── middleware/                 # Authentication, error handling
-│   ├── models/                     # Mongoose schemas (User, Product, Order)
-│   ├── routes/                     # Express routes
-│   ├── utils/                      # Helper functions (tokens, validators)
-│   ├── .env                        # Environment variables
-│   └── index.js                    # Main backend entry point
-│
-├── .gitignore                      # Git ignore rules
-├── README.md                       # Project documentation
-└── package.json                    # Project metadata and scripts
+<pre><code>```text fashnior-ecommerce/ | ├── client/ # User-facing frontend (React) │ ├── public/ # Static files │ └── src/ │ ├── assets/ # Images, icons, etc. │ ├── components/ # Reusable UI components │ ├── pages/ # Pages (Home, Product, Cart, etc.) │ ├── redux/ # Redux slices and store setup │ ├── services/ # Axios API calls │ ├── utils/ # Helper functions │ ├── App.js # Main App component │ └── main.jsx # React entry point | ├── admin/ # Admin panel frontend (React) │ ├── public/ # Admin static files │ └── src/ │ ├── components/ # Admin UI components │ ├── pages/ # Admin pages (Dashboard, Products, Orders) │ ├── redux/ # Admin Redux store │ ├── services/ # Admin API handlers │ ├── utils/ # Utilities │ ├── App.js # Admin App component │ └── main.jsx # React entry point | ├── server/ # Backend (Node.js + Express) │ ├── config/ # Config files (DB, Razorpay) │ ├── controllers/ # Business logic │ ├── middleware/ # Auth, error handling │ ├── models/ # Mongoose schemas │ ├── routes/ # API routes │ ├── utils/ # Helper functions (tokens, validators) │ ├── .env # Environment variables │ └── index.js # Entry point for backend | ├── .gitignore # Git ignore rules ├── README.md # Project documentation └── package.json # Project metadata ```</code></pre>
 
 
 
