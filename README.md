@@ -62,27 +62,28 @@ fashnior-ecommerce/
 ├── admin/                          # Admin panel frontend (React)
 │   ├── public/                     # Static files for admin
 │   └── src/
-│       ├── components/             # Admin-specific components (sidebar, dashboard cards, etc.)
-│       ├── pages/                  # Admin pages (Add Product, Orders, Users, etc.)
-│       ├── redux/                  # Redux logic for admin
-│       ├── services/               # API calls for admin functionality
-│       ├── utils/                  # Utilities (e.g., token management)
-│       ├── App.js                  # Root component for admin
+│       ├── components/             # Admin-specific UI components
+│       ├── pages/                  # Pages like Dashboard, Products, Orders
+│       ├── redux/                  # Redux setup for admin state
+│       ├── services/               # Admin-specific API functions
+│       ├── utils/                  # Utility functions
+│       ├── App.js                  # Admin root component
 │       └── main.jsx                # React entry point
 │
 ├── server/                         # Backend (Node.js + Express)
-│   ├── config/                     # Config files (DB, Razorpay)
-│   ├── controllers/                # Logic for handling requests
-│   ├── middleware/                 # Auth and error handling
-│   ├── models/                     # Mongoose schemas (Product, User, Order)
-│   ├── routes/                     # Express route handlers
-│   ├── utils/                      # Token generation, validators, etc.
-│   ├── .env                        # Environment variables (not committed)
-│   └── index.js                    # Entry point for backend server
+│   ├── config/                     # Configuration files (DB, Razorpay)
+│   ├── controllers/                # Route handlers
+│   ├── middleware/                 # Authentication, error handling
+│   ├── models/                     # Mongoose schemas (User, Product, Order)
+│   ├── routes/                     # Express routes
+│   ├── utils/                      # Helper functions (tokens, validators)
+│   ├── .env                        # Environment variables
+│   └── index.js                    # Main backend entry point
 │
 ├── .gitignore                      # Git ignore rules
 ├── README.md                       # Project documentation
-└── package.json                    # Project metadata and dependencies
+└── package.json                    # Project metadata and scripts
+
 
 
 
