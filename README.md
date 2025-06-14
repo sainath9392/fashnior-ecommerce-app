@@ -45,7 +45,43 @@
 
 ## 🗂️ Folder Structure
 
-<pre><code>```text fashnior-ecommerce/ | ├── client/ # User-facing frontend (React) │ ├── public/ # Static files │ └── src/ │ ├── assets/ # Images, icons, etc. │ ├── components/ # Reusable UI components │ ├── pages/ # Pages (Home, Product, Cart, etc.) │ ├── redux/ # Redux slices and store setup │ ├── services/ # Axios API calls │ ├── utils/ # Helper functions │ ├── App.js # Main App component │ └── main.jsx # React entry point | ├── admin/ # Admin panel frontend (React) │ ├── public/ # Admin static files │ └── src/ │ ├── components/ # Admin UI components │ ├── pages/ # Admin pages (Dashboard, Products, Orders) │ ├── redux/ # Admin Redux store │ ├── services/ # Admin API handlers │ ├── utils/ # Utilities │ ├── App.js # Admin App component │ └── main.jsx # React entry point | ├── server/ # Backend (Node.js + Express) │ ├── config/ # Config files (DB, Razorpay) │ ├── controllers/ # Business logic │ ├── middleware/ # Auth, error handling │ ├── models/ # Mongoose schemas │ ├── routes/ # API routes │ ├── utils/ # Helper functions (tokens, validators) │ ├── .env # Environment variables │ └── index.js # Entry point for backend | ├── .gitignore # Git ignore rules ├── README.md # Project documentation └── package.json # Project metadata ```</code></pre>
+fashnior-ecommerce/
+├─ client/                      - User-facing frontend (React)
+│  ├─ public/                   - Static files
+│  └─ src/
+│     ├─ assets/                - Images, icons, etc.
+│     ├─ components/            - Reusable UI components
+│     ├─ pages/                 - Route-level pages (Home, Cart, Product)
+│     ├─ redux/                 - Redux store and slices
+│     ├─ services/              - Axios API handlers
+│     ├─ utils/                 - Helper functions
+│     ├─ App.js                 - Root App component
+│     └─ main.jsx               - React entry point
+
+├─ admin/                       - Admin panel frontend (React)
+│  ├─ public/                   - Static admin files
+│  └─ src/
+│     ├─ components/            - Admin UI components
+│     ├─ pages/                 - Dashboard, Orders, Products
+│     ├─ redux/                 - Admin store setup
+│     ├─ services/              - Admin API functions
+│     ├─ utils/                 - Helpers
+│     ├─ App.js                 - Admin App root
+│     └─ main.jsx               - Entry file
+
+├─ server/                      - Backend (Node + Express)
+│  ├─ config/                   - DB & payment config
+│  ├─ controllers/              - Route handlers
+│  ├─ middleware/               - Auth, error middleware
+│  ├─ models/                   - Mongoose models
+│  ├─ routes/                   - API routes
+│  ├─ utils/                    - JWT, validators
+│  ├─ .env                      - Environment variables
+│  └─ index.js                  - App entry point
+
+├─ .gitignore                   - Git ignore rules
+├─ README.md                    - Project documentation
+└─ package.json                 - Project metadata
 
 
 
