@@ -67,25 +67,27 @@ git clone https://github.com/yourusername/fashnior-ecommerce.git
 cd fashnior-ecommerce
 
 
-##2. Setup Backend
+## 2. Setup Backend
 
 cd server
 npm install
-# Create a .env file and add the following:
-# MONGO_URI=your_mongo_uri
-# JWT_SECRET=your_secret
-# ADMIN_EMAIL=your_admin_email
-# ADMIN_PASS=your_admin_password
-# RAZORPAY_KEY=your_key
-# RAZORPAY_SECRET=your_secret
+
+Create a .env file and add the following:
+MONGO_URI=your_mongo_uri
+JWT_SECRET=your_secret
+ADMIN_EMAIL=your_admin_email
+ADMIN_PASS=your_admin_password
+RAZORPAY_KEY=your_key
+RAZORPAY_SECRET=your_secret
+
 npm run dev
 
-##3. Setup Frontend
+## 3. Setup Frontend
 cd ../client
 npm install
 npm start
 
-##⚙️ Environment Variables
+## ⚙️ Environment Variables
 Make sure to configure the following variables in your .env file:
 
 MONGO_URI=
@@ -96,21 +98,21 @@ RAZORPAY_KEY=
 RAZORPAY_SECRET=
 
 ## Future Improvements
--Product reviews and ratings
+Product reviews and ratings
 
--Wishlist feature
+Wishlist feature
 
--Email notifications
+Email notifications
 
--SEO and performance optimizations
+SEO and performance optimizations
 
-##🤝 Contributing
+## 🤝 Contributing
 Contributions are welcome! Feel free to fork the repository and submit a pull request.
 
-##📄 License
+## 📄 License
 This project is open-source and available under the MIT License.
 
-##📬 Contact
-Built with ❤️ by Duvvuri Sainath
+## 📬 Contact
+Built by Duvvuri Sainath
 📧 Email: sainathduvvuri03@gmail.com
 🔗 LinkedIn: [https://linkedin.com/in/yourusername](https://www.linkedin.com/in/sainath-duvvuri-46ab61292/)
