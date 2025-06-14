@@ -55,7 +55,7 @@ const Login = ({ setToken }) => {
             className="flex flex-col w-[90%] sm:max-w-md m-auto gap-y-5 text-gray-800"
           >
             <div className="w-full mb-4">
-              <h3 className="bold-36">Admin Login</h3>
+              <h3 className="bold-36">Admin L<span className="text-secondary">o</span>gin</h3>
             </div>
 
             <div className="w-full">
