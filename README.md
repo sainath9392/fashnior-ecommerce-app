@@ -44,18 +44,46 @@
 ---
 
 ## 🗂️ Folder Structure
-client/
-├── src/
-│ ├── components/
-│ ├── pages/
-│ ├── Context/
-│ └── App.js
-server/
-├── controllers/
-├── models/
-├── routes/
-├── utils/
-└── index.js
+
+fashnior-ecommerce/
+│
+├── client/                         # User-facing frontend (React)
+│   ├── public/                     # Static files
+│   └── src/
+│       ├── assets/                 # Images, icons, etc.
+│       ├── components/             # Reusable UI components
+│       ├── pages/                  # Route-level pages (Home, Product, Cart, etc.)
+│       ├── redux/                  # Redux slices and store
+│       ├── services/               # Axios API calls
+│       ├── utils/                  # Utility functions
+│       ├── App.js                  # Root component
+│       └── main.jsx                # React entry point
+│
+├── admin/                          # Admin panel frontend (React)
+│   ├── public/                     # Static files for admin
+│   └── src/
+│       ├── components/             # Admin-specific components (sidebar, dashboard cards, etc.)
+│       ├── pages/                  # Admin pages (Add Product, Orders, Users, etc.)
+│       ├── redux/                  # Redux logic for admin
+│       ├── services/               # API calls for admin functionality
+│       ├── utils/                  # Utilities (e.g., token management)
+│       ├── App.js                  # Root component for admin
+│       └── main.jsx                # React entry point
+│
+├── server/                         # Backend (Node.js + Express)
+│   ├── config/                     # Config files (DB, Razorpay)
+│   ├── controllers/                # Logic for handling requests
+│   ├── middleware/                 # Auth and error handling
+│   ├── models/                     # Mongoose schemas (Product, User, Order)
+│   ├── routes/                     # Express route handlers
+│   ├── utils/                      # Token generation, validators, etc.
+│   ├── .env                        # Environment variables (not committed)
+│   └── index.js                    # Entry point for backend server
+│
+├── .gitignore                      # Git ignore rules
+├── README.md                       # Project documentation
+└── package.json                    # Project metadata and dependencies
+
 
 
 ## 🚀 Getting Started Locally
