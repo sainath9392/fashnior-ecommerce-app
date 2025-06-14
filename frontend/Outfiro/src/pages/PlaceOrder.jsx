@@ -71,6 +71,9 @@ const PlaceOrder = () => {
       switch (method) {
         //api calls for COD
         case "cod": {
+          if(!token){
+            toast.error("Please Login To Place Order")
+          }
           const response = await axios.post(
             backendUrl + "/api/order/place",
             orderData,
@@ -88,6 +91,9 @@ const PlaceOrder = () => {
         }
 
         case "razorpay": {
+          if(!token){
+            toast.error("Please Login To Place Order")
+          }
           const createOrderResponse = await axios.post(
             backendUrl + "/api/payment/create-order",
             orderData,
