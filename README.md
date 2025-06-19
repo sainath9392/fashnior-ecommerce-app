@@ -7,12 +7,6 @@
 
 ---
 
-## 📸 Screenshots
-
-> *(Add screenshots or a demo video here if available)*
-
----
-
 ## ✨ Features
 
 ### 👤 User Side
