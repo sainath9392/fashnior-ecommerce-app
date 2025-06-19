@@ -97,11 +97,17 @@ cd server
 npm install
 
 Create a .env file and add the following:
+
 MONGO_URI=your_mongo_uri
+
 JWT_SECRET=your_secret
+
 ADMIN_EMAIL=your_admin_email
+
 ADMIN_PASS=your_admin_password
+
 RAZORPAY_KEY=your_key
+
 RAZORPAY_SECRET=your_secret
 
 npm run dev
