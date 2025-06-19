@@ -94,6 +94,7 @@ cd fashnior-ecommerce
 ## 2. Setup Backend
 
 cd server
+
 npm install
 
 Create a .env file and add the following:
@@ -114,7 +115,9 @@ npm run dev
 
 ## 3. Setup Frontend
 cd ../client
+
 npm install
+
 npm start
 
 ## ⚙️ Environment Variables
